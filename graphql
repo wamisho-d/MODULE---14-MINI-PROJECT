@@ -1,0 +1,60 @@
+Testing
+
+To test the application:
+
+    Run app.py using the command:
+
+        python app.py
+
+Open http://localhost:5000/graphql in your browser to access the GraphiQL interface.
+
+Use the following queries and mutations to test:
+
+    Create a Genre:
+
+mutation {
+  createGenre(input: { name: "Action" }) {
+    genre {
+      id
+      name
+    }
+  }
+}
+
+Update a Genre:
+
+mutation {
+  updateGenre(id: 1, name: "Adventure") {
+    genre {
+      id
+      name
+    }
+  }
+}
+
+Delete a Genre:
+
+mutation {
+  deleteGenre(id: 1) {
+    success
+  }
+}
+
+Get Movies by Genre:
+
+query {
+  getMoviesByGenre(genreId: 1) {
+    id
+    title
+    releaseYear
+  }
+}
+
+Get Genres by Movie:
+
+query {
+  getGenresByMovie(movieId: 1) {
+    id
+    name
+  }
+}
